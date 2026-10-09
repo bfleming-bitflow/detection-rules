@@ -1,0 +1,4 @@
+Synthetic test fixture (positive) for YARA rule LSASS_Memory_Dump_Command.
+Inert text, never executed. Command text only; process ID is arbitrary.
+
+rundll32 comsvcs.dll,#24 612 C:\Users\Public\o.dmp full

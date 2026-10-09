@@ -1,0 +1,4 @@
+Synthetic test fixture (negative) for YARA rule LSASS_Memory_Dump_Command.
+Inert text, never executed. Troubleshooting dump of an application process.
+
+procdump64.exe -accepteula -ma -e 1 MyService.exe C:\Dumps\crash.dmp

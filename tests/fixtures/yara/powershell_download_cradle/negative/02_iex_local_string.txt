@@ -1,0 +1,6 @@
+Synthetic test fixture (negative) for YARA rule PowerShell_Download_Cradle.
+Inert text, never executed. Hosts use reserved documentation names (example.invalid) and addresses (192.0.2.0/24).
+
+$command = 'Get-Date -Format o'
+Invoke-Expression $command
+(New-Object Net.WebClient).DownloadFile('https://example.invalid/a.csv', 'a.csv')

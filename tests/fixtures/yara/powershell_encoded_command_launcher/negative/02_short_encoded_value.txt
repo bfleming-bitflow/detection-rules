@@ -1,0 +1,4 @@
+Synthetic test fixture (negative) for YARA rule PowerShell_Encoded_Command_Launcher.
+Inert text, never executed. Encoded argument shorter than the 40-character threshold.
+
+powershell.exe -enc ZABpAHIA

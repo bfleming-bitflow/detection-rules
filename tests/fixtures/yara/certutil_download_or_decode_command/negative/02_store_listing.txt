@@ -1,0 +1,4 @@
+Synthetic test fixture (negative) for YARA rule Certutil_Download_Or_Decode_Command.
+Inert text, never executed. Certificate store listing only.
+
+certutil -store -user My

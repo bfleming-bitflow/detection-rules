@@ -1,0 +1,5 @@
+Synthetic test fixture (negative) for YARA rule Shadow_Copy_Deletion_Command.
+Inert text, never executed. Creates a shadow copy.
+
+vssadmin create shadow /for=C:
+bcdedit /enum {default}

@@ -1,0 +1,4 @@
+Synthetic test fixture (negative) for YARA rule Registry_Run_Key_Persistence_Command.
+Inert text, never executed. Run value pointing to an installed application under Program Files.
+
+reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v Agent /t REG_SZ /d "C:\Program Files\Vendor\agent.exe" /f

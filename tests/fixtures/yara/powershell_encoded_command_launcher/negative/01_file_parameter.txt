@@ -1,0 +1,4 @@
+Synthetic test fixture (negative) for YARA rule PowerShell_Encoded_Command_Launcher.
+Inert text, never executed. Named script file, no encoded command.
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0maintenance.ps1"

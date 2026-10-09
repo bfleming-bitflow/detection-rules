@@ -1,0 +1,4 @@
+Synthetic test fixture (negative) for YARA rule LSASS_Memory_Dump_Command.
+Inert text, never executed. Mentions lsass without dumping it.
+
+Get-Process -Name lsass | Select-Object Id, StartTime

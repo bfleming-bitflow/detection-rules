@@ -1,0 +1,11 @@
+Synthetic test fixture (negative) for YARA rule WebShell_ASPX_Process_Start_Request_Input.
+Inert text, never executed. All code is inside an ASP.NET server-side comment and is never compiled.
+
+<%@ Page Language="C#" %>
+<%--
+<script runat="server">
+void Page_Load(object sender, EventArgs e) {
+    System.Diagnostics.Process.Start("C:\\Tools\\rotate-logs.exe");
+}
+</script>
+--%>

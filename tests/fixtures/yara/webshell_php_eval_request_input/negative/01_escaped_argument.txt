@@ -1,0 +1,8 @@
+Synthetic test fixture (negative) for YARA rule WebShell_PHP_Eval_Request_Input.
+Inert text, never executed. PHP parsing stops at __halt_compiler(); everything after it is data.
+
+<?php __halt_compiler();
+<?php
+$file = basename($_GET['file'] ?? '');
+exec('/usr/bin/file --brief ' . escapeshellarg($file), $output);
+echo htmlspecialchars(implode("\n", $output), ENT_QUOTES);

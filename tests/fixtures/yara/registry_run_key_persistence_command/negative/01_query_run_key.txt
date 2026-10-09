@@ -1,0 +1,4 @@
+Synthetic test fixture (negative) for YARA rule Registry_Run_Key_Persistence_Command.
+Inert text, never executed. Read-only query.
+
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Run

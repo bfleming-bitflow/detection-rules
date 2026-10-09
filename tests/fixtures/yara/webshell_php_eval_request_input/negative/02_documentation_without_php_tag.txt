@@ -1,0 +1,5 @@
+Synthetic test fixture (negative) for YARA rule WebShell_PHP_Eval_Request_Input.
+Inert text, never executed. Plain documentation text; contains the pattern but no PHP open tag.
+
+Secure coding note: never pass request data to eval, for example eval($_POST['x']).
+Use an explicit allowlist of operations instead.

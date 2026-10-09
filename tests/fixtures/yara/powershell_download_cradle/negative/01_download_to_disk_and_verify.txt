@@ -1,0 +1,6 @@
+Synthetic test fixture (negative) for YARA rule PowerShell_Download_Cradle.
+Inert text, never executed. Hosts use reserved documentation names (example.invalid) and addresses (192.0.2.0/24).
+
+$dest = Join-Path $env:TEMP 'tool.zip'
+Invoke-WebRequest -Uri 'https://example.invalid/tool.zip' -OutFile $dest
+(Get-FileHash $dest -Algorithm SHA256).Hash

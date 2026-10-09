@@ -1,0 +1,5 @@
+Synthetic test fixture (negative) for YARA rule Shadow_Copy_Deletion_Command.
+Inert text, never executed. Read-only listing.
+
+vssadmin.exe list shadows
+wmic shadowcopy list brief

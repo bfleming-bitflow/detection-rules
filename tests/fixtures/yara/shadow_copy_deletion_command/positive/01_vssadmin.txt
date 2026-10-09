@@ -1,0 +1,4 @@
+Synthetic test fixture (positive) for YARA rule Shadow_Copy_Deletion_Command.
+Inert text, never executed. Command text only.
+
+vssadmin.exe delete shadows /all /quiet

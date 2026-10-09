@@ -1,0 +1,4 @@
+Synthetic test fixture (positive) for YARA rule PowerShell_Encoded_Command_Launcher.
+Inert text, never executed. The Base64 value decodes (UTF-16LE) to: Write-Output 'synthetic fixture'
+
+Target: "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -nop -w hidden -enc VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAHMAeQBuAHQAaABlAHQAaQBjACAAZgBpAHgAdAB1AHIAZQAnAA==

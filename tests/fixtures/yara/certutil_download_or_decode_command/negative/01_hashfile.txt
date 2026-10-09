@@ -1,0 +1,4 @@
+Synthetic test fixture (negative) for YARA rule Certutil_Download_Or_Decode_Command.
+Inert text, never executed. Hash computation only.
+
+certutil.exe -hashfile "%~dp0installer.msi" SHA256

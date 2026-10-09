@@ -1,0 +1,5 @@
+Synthetic test fixture (positive) for YARA rule WebShell_PHP_Eval_Request_Input.
+Inert text, never executed. PHP parsing stops at __halt_compiler(); everything after it is data.
+
+<?php __halt_compiler();
+<?php @eval(base64_decode($_POST['p'])); ?>
