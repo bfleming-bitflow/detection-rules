@@ -1,0 +1,66 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: lint, rules, tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libjansson-dev
+          python -m pip install -r requirements-dev.txt
+
+      - name: Lint Python
+        run: |
+          ruff check .
+          ruff format --check .
+
+      - name: Lint YAML
+        run: yamllint -s .
+
+      - name: Compile YARA rules
+        run: |
+          python <<'PY'
+          import yara
+          from pathlib import Path
+          paths = {p.stem: str(p) for p in Path("rules/yara").glob("*.yar")}
+          yara.compile(filepaths=paths)
+          print(f"compiled {len(paths)} rules")
+          PY
+
+      - name: Validate Sigma rules
+        run: sigma check --fail-on-issues rules/sigma
+
+      - name: Run tests
+        run: pytest
+
+      - name: Check ATT&CK coverage document
+        run: python tools/coverage.py --check
