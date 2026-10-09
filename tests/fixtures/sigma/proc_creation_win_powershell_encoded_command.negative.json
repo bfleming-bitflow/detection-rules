@@ -1,0 +1,14 @@
+[
+  {
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "OriginalFileName": "PowerShell.EXE",
+    "CommandLine": "powershell.exe -NoProfile -File C:\\Scripts\\backup.ps1",
+    "ParentImage": "C:\\Windows\\System32\\svchost.exe"
+  },
+  {
+    "Image": "C:\\Windows\\System32\\cmd.exe",
+    "OriginalFileName": "Cmd.Exe",
+    "CommandLine": "cmd.exe /c echo -EncodedCommand test",
+    "ParentImage": "C:\\Windows\\explorer.exe"
+  }
+]

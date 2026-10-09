@@ -1,0 +1,10 @@
+[
+  {
+    "TargetObject": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\SecurityAgent",
+    "Details": "C:\\Program Files\\Vendor\\agent.exe"
+  },
+  {
+    "TargetObject": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\Hidden",
+    "Details": "C:\\Users\\Public\\not-a-run-key.exe"
+  }
+]

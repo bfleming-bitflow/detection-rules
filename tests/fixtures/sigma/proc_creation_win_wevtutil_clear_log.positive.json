@@ -1,0 +1,12 @@
+[
+  {
+    "Image": "C:\\Windows\\System32\\wevtutil.exe",
+    "OriginalFileName": "wevtutil.exe",
+    "CommandLine": "wevtutil.exe cl Security"
+  },
+  {
+    "Image": "C:\\Windows\\System32\\wevtutil.exe",
+    "OriginalFileName": "wevtutil.exe",
+    "CommandLine": "wevtutil clear-log Application"
+  }
+]

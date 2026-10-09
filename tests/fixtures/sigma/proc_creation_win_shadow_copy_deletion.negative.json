@@ -1,0 +1,12 @@
+[
+  {
+    "Image": "C:\\Windows\\System32\\vssadmin.exe",
+    "OriginalFileName": "VSSADMIN.EXE",
+    "CommandLine": "vssadmin.exe list shadows"
+  },
+  {
+    "Image": "C:\\Windows\\System32\\vssadmin.exe",
+    "OriginalFileName": "VSSADMIN.EXE",
+    "CommandLine": "vssadmin.exe create shadow /for=C:"
+  }
+]

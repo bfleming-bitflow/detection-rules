@@ -1,0 +1,12 @@
+[
+  {
+    "Image": "C:\\Windows\\System32\\schtasks.exe",
+    "OriginalFileName": "schtasks.exe",
+    "CommandLine": "schtasks.exe /Create /TN Updater /TR \\\"powershell -File C:\\Users\\Public\\a.ps1\\\" /SC ONLOGON"
+  },
+  {
+    "Image": "C:\\Windows\\System32\\schtasks.exe",
+    "OriginalFileName": "schtasks.exe",
+    "CommandLine": "schtasks /create /tn X /tr \\\"C:\\Windows\\Temp\\x.exe\\\" /sc once /st 00:00"
+  }
+]

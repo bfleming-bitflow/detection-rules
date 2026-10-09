@@ -1,0 +1,42 @@
+title: PowerShell Started With an Encoded Command
+id: 1c51add2-eb4c-40b4-9adb-3ed271667c6d
+status: experimental
+description: |
+  Detects powershell.exe or pwsh.exe started with the -EncodedCommand parameter or one of its
+  accepted abbreviations. Encoded commands accept a Base64 UTF-16LE script on the command line
+  and are commonly used to hide script content from casual inspection and simple string matching.
+references:
+  - https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_powershell_exe
+  - https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pwsh
+  - https://attack.mitre.org/techniques/T1059/001/
+  - https://attack.mitre.org/techniques/T1027/010/
+author: bfleming-bitflow
+date: 2026-10-09
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.stealth
+  - attack.t1027.010
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_img:
+    - Image|endswith:
+        - '\powershell.exe'
+        - '\pwsh.exe'
+    - OriginalFileName:
+        - 'PowerShell.EXE'
+        - 'pwsh.dll'
+  selection_cli:
+    CommandLine|contains|windash:
+      - ' -e '
+      - ' -en '
+      - ' -enc'
+      - ' -ec '
+  condition: all of selection_*
+falsepositives:
+  - Software deployment and endpoint management agents that launch PowerShell with encoded
+    commands. Baseline the parent processes in the environment and exclude them by
+    ParentImage and signer rather than by command line content.
+level: medium

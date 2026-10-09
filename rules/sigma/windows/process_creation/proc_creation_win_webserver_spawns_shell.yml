@@ -1,0 +1,43 @@
+title: Web Server Process Spawns a Command Shell or Reconnaissance Tool
+id: 5331856b-cee7-4dc9-a623-35eaad5adf74
+status: experimental
+description: |
+  Detects a web server or web application worker process starting a command shell, PowerShell
+  or a common discovery utility. Web applications rarely need to start these programs, and this
+  parent-child relationship is a strong indicator of command execution through a web shell or an
+  exploited application.
+references:
+  - https://github.com/nsacyber/Mitigating-Web-Shells
+  - https://www.microsoft.com/en-us/security/blog/2021/02/11/web-shell-attacks-continue-to-rise/
+  - https://attack.mitre.org/techniques/T1505/003/
+author: bfleming-bitflow
+date: 2026-10-09
+tags:
+  - attack.persistence
+  - attack.t1505.003
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '\w3wp.exe'
+      - '\httpd.exe'
+      - '\nginx.exe'
+      - '\php-cgi.exe'
+  selection_child:
+    Image|endswith:
+      - '\cmd.exe'
+      - '\powershell.exe'
+      - '\pwsh.exe'
+      - '\whoami.exe'
+      - '\net.exe'
+      - '\net1.exe'
+      - '\systeminfo.exe'
+      - '\certutil.exe'
+  condition: all of selection_*
+falsepositives:
+  - Web applications that intentionally run shell commands, such as legacy CGI scripts or
+    deployment hooks. Identify them by command line and application pool and exclude them
+    explicitly.
+level: high

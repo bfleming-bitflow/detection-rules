@@ -1,0 +1,12 @@
+[
+  {
+    "ParentImage": "C:\\Windows\\System32\\inetsrv\\w3wp.exe",
+    "Image": "C:\\Windows\\System32\\cmd.exe",
+    "CommandLine": "cmd.exe /c whoami"
+  },
+  {
+    "ParentImage": "C:\\Program Files\\PHP\\php-cgi.exe",
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "CommandLine": "powershell.exe -c Get-Process"
+  }
+]

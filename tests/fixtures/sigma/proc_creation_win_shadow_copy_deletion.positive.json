@@ -1,0 +1,12 @@
+[
+  {
+    "Image": "C:\\Windows\\System32\\vssadmin.exe",
+    "OriginalFileName": "VSSADMIN.EXE",
+    "CommandLine": "vssadmin.exe delete shadows /all /quiet"
+  },
+  {
+    "Image": "C:\\Windows\\System32\\wbem\\WMIC.exe",
+    "OriginalFileName": "wmic.exe",
+    "CommandLine": "wmic.exe shadowcopy delete"
+  }
+]

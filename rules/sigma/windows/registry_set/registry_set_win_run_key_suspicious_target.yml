@@ -1,0 +1,47 @@
+title: Run Key Value Points to a User-Writable Path or Script Interpreter
+id: 39de0477-cadb-4a30-be0f-7a7c8f8f4fd0
+status: experimental
+description: |
+  Detects a value written under a Run or RunOnce registry key whose data references a
+  user-writable directory commonly used for staging, or a script interpreter. Programs listed
+  under these keys start automatically at logon, which makes them a common persistence location.
+references:
+  - https://learn.microsoft.com/en-us/windows/win32/setupapi/run-and-runonce-registry-keys
+  - https://attack.mitre.org/techniques/T1547/001/
+author: bfleming-bitflow
+date: 2026-10-09
+tags:
+  - attack.persistence
+  - attack.t1547.001
+logsource:
+  category: registry_set
+  product: windows
+detection:
+  selection_key:
+    TargetObject|contains:
+      - '\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\'
+      - '\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\'
+      - '\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run\'
+      - '\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce\'
+  selection_target_path:
+    Details|contains:
+      - '\AppData\Local\Temp\'
+      - '\Windows\Temp\'
+      - '\Users\Public\'
+      - '%TEMP%'
+      - '%PUBLIC%'
+  selection_target_interpreter:
+    Details|contains:
+      - 'powershell'
+      - 'pwsh'
+      - 'mshta'
+      - 'wscript'
+      - 'cscript'
+      - 'rundll32'
+      - 'regsvr32'
+  condition: selection_key and 1 of selection_target_*
+falsepositives:
+  - Installers that register a one-time RunOnce cleanup step from a temporary directory.
+  - Legitimate login scripts started through PowerShell. Review the writing process (Image)
+    and exclude known management tooling.
+level: medium

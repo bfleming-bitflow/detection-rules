@@ -1,0 +1,14 @@
+[
+  {
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "OriginalFileName": "PowerShell.EXE",
+    "CommandLine": "powershell.exe -NoProfile -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAGYAaQB4AHQAdQByAGUAJwA=",
+    "ParentImage": "C:\\Windows\\System32\\cmd.exe"
+  },
+  {
+    "Image": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+    "OriginalFileName": "pwsh.dll",
+    "CommandLine": "pwsh -nop -w hidden -enc VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAGYAaQB4AHQAdQByAGUAJwA=",
+    "ParentImage": "C:\\Windows\\explorer.exe"
+  }
+]

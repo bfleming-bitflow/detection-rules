@@ -1,0 +1,17 @@
+[
+  {
+    "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+    "SourceImage": "C:\\Windows\\System32\\csrss.exe",
+    "GrantedAccess": "0x1fffff"
+  },
+  {
+    "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+    "SourceImage": "C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.24010.12-0\\MsMpEng.exe",
+    "GrantedAccess": "0x1010"
+  },
+  {
+    "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+    "SourceImage": "C:\\Users\\Public\\tool.exe",
+    "GrantedAccess": "0x1000"
+  }
+]

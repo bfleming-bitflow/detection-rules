@@ -1,0 +1,44 @@
+title: Process Opened LSASS With Memory Read Access
+id: 424d24a7-57c3-4573-bd13-de3c713b5db1
+status: experimental
+description: |
+  Detects a process opening a handle to lsass.exe with access masks that include
+  PROCESS_VM_READ and are typical of credential dumping and full memory dump tools. Reading
+  LSASS memory can expose credential material for logged-on users. Requires Sysmon Event ID 10
+  (ProcessAccess) with a configuration that includes lsass.exe as a target.
+references:
+  - https://learn.microsoft.com/en-us/windows/win32/procthread/process-security-and-access-rights
+  - https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon
+  - https://attack.mitre.org/techniques/T1003/001/
+author: bfleming-bitflow
+date: 2026-10-09
+tags:
+  - attack.credential-access
+  - attack.t1003.001
+logsource:
+  category: process_access
+  product: windows
+detection:
+  selection:
+    TargetImage|endswith: '\lsass.exe'
+    GrantedAccess:
+      - '0x1010'
+      - '0x1410'
+      - '0x1438'
+      - '0x143a'
+      - '0x1fffff'
+  filter_main_system:
+    SourceImage:
+      - 'C:\Windows\System32\csrss.exe'
+      - 'C:\Windows\System32\wininit.exe'
+      - 'C:\Windows\System32\lsass.exe'
+  filter_main_defender:
+    SourceImage|startswith: 'C:\ProgramData\Microsoft\Windows Defender\Platform\'
+    SourceImage|endswith: '\MsMpEng.exe'
+  condition: selection and not 1 of filter_main_*
+falsepositives:
+  - Endpoint protection, EDR and backup agents that inspect LSASS. Exclude them by full
+    SourceImage path after confirming the binary is signed and installed in a protected
+    location.
+  - Crash dump collection during troubleshooting.
+level: high

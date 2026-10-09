@@ -1,0 +1,43 @@
+title: Scheduled Task Created With a Suspicious Action
+id: eedaee30-cd71-4b88-9506-e3859a69e13b
+status: experimental
+description: |
+  Detects schtasks.exe creating a task whose command line references a user-writable staging
+  directory, a script interpreter, or a URL. Scheduled tasks provide execution and persistence,
+  and tasks created from the command line with these properties are rarely part of normal
+  software installation.
+references:
+  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/schtasks-create
+  - https://lolbas-project.github.io/lolbas/Binaries/Schtasks/
+  - https://attack.mitre.org/techniques/T1053/005/
+author: bfleming-bitflow
+date: 2026-10-09
+tags:
+  - attack.execution
+  - attack.persistence
+  - attack.t1053.005
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_img:
+    - Image|endswith: '\schtasks.exe'
+    - OriginalFileName: 'schtasks.exe'
+  selection_create:
+    CommandLine|contains|windash: ' -create '
+  selection_action:
+    CommandLine|contains:
+      - '\AppData\Local\Temp\'
+      - '\Windows\Temp\'
+      - '\Users\Public\'
+      - 'powershell'
+      - 'mshta'
+      - 'wscript'
+      - 'cscript'
+      - 'http://'
+      - 'https://'
+  condition: all of selection_*
+falsepositives:
+  - Administrative scripts that schedule PowerShell maintenance jobs. Baseline task names and
+    the accounts that create them.
+level: medium

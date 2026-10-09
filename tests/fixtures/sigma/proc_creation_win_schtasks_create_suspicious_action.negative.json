@@ -1,0 +1,12 @@
+[
+  {
+    "Image": "C:\\Windows\\System32\\schtasks.exe",
+    "OriginalFileName": "schtasks.exe",
+    "CommandLine": "schtasks.exe /Create /TN Backup /TR \\\"C:\\Program Files\\Backup\\job.exe\\\" /SC DAILY"
+  },
+  {
+    "Image": "C:\\Windows\\System32\\schtasks.exe",
+    "OriginalFileName": "schtasks.exe",
+    "CommandLine": "schtasks.exe /Query /TN Backup"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "TargetObject": "HKU\\S-1-5-21-1-2-3-1001\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\Updater",
+    "Details": "C:\\Users\\Public\\updater.exe"
+  },
+  {
+    "TargetObject": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\\Cleanup",
+    "Details": "powershell.exe -File C:\\Windows\\Temp\\cleanup.ps1"
+  }
+]
