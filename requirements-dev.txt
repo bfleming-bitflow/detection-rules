@@ -7,3 +7,4 @@ yara-python==4.5.4
 pySigma==1.5.1
 sigma-cli==3.1.0
 pySigma-backend-sqlite==2.0.0
+pytest-cov==7.0.0

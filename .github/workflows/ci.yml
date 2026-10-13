@@ -60,7 +60,7 @@ jobs:
         run: sigma check --fail-on-issues rules/sigma
 
       - name: Run tests
-        run: pytest
+        run: pytest --cov=tools --cov-report=term-missing --cov-fail-under=80
 
       - name: Check ATT&CK coverage document
         run: python tools/coverage.py --check

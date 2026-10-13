@@ -6,6 +6,10 @@ All notable changes to this project are documented in this file. The format is b
 
 ## [Unreleased]
 
+### Changed
+
+- CI and `make test` now enforce at least 80% line coverage on `tools/`.
+
 ## [0.1.0] - 2026-10-09
 
 ### Added

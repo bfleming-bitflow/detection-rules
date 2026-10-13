@@ -31,7 +31,7 @@ yara-check:
 	$(BIN)/python -c "import yara; from pathlib import Path; yara.compile(filepaths={p.stem: str(p) for p in Path('rules/yara').glob('*.yar')}); print('yara ok')"
 
 test:
-	$(BIN)/pytest
+	$(BIN)/pytest --cov=tools --cov-report=term-missing --cov-fail-under=80
 
 coverage:
 	$(BIN)/python tools/coverage.py
